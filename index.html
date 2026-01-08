@@ -84,17 +84,34 @@
           お問い合わせいただいてから、家が完成するまでの流れです。
         </h3>
 
-        <div class="zukei">
-          <div class="zukei_left"></div>
-          <div class="zukei_right"></div>
+        <!-- 「図解」と「計画の流れ」を分ける flex -->
+        <div class="zukai">
+          <div class="zukai_left">
+            <div class="left_flow">ヒアリング</div>
+            <div class="left_flow">ヒアリング</div>
+            <div class="left_flow">ヒアリング</div>
+          </div>
+          <!-- flexで「番号➀」と「計画の流れ」を分ける 親flex-->
+          <div class="zukai_right">
+            <dt class="number_area">
+              ヒアリング
+              <span class="num">1</span>
+            </dt>
+            <dd class="flow_msg_area">
+              テキストテキストテキストテキストテキストテキストテキストテキスト
+              テキス トテキストテキストテキストテキストテキストテキストテキスト
+            </dd>
+            <dt class="number_area"><span class="num">1</span>ヒアリング</dt>
+            <dd class="flow_msg_area">
+              テキストテキストテキストテキストテキストテキストテキストテキスト
+              テキス トテキストテキストテキストテキストテキストテキストテキスト
+            </dd>
+          </div>
         </div>
-
-        <img
-          class="flow_img"
-          src="img/flow_chart.png"
-          alt="家ができるまでの流れ"
-        />
       </section>
+      <!-- ===============================================
+      XXXXXXXXXXXXXXX
+       =============================================== -->
     </main>
 
     <script src="js/work.js"></script>

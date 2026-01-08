@@ -4,7 +4,7 @@
 
 /* ➀固定のサイドバーのコンテナ */
 #header {
-  width: 30rem;
+  width: 300px;
   height: 60rem;
   position: fixed;
   top: 0;
@@ -18,8 +18,8 @@
 /* ➁明るい未来エリア */
 .site_title {
   margin-bottom: 4rem;
-  width: 21rem;
-  height: 6rem;
+  width: 210px;
+  height: 60px;
 }
 
 /* ➁メニュー一覧２つのエリア　親要素 */
@@ -52,7 +52,7 @@
    │ 右のメイン灰色                            │
    └─────────────────────────────────────────┘ */
 #product_area {
-  margin-left: 30rem;
+  margin-left: 300px;
   height: 60rem;
   background-color: #dedede;
 }
@@ -65,7 +65,7 @@
 #work_list {
   background: linear-gradient(#5454544d, #000000cc);
   color: #fff;
-  margin-left: 30rem;
+  margin-left: 300px;
   padding: 8.5rem 12rem;
 }
 
@@ -142,7 +142,7 @@
 
 #flow_area {
   color: #fff;
-  margin-left: 30rem;
+  margin-left: 300px;
   /* debug 暫定 */
   padding: 8.5rem 12rem;
 }
@@ -169,15 +169,124 @@
   width: 28%; /* 線の長さ */
 }
 
+/* タイトルメッセージ　説明 */
 .flow_small_msg {
   font-size: 1.25rem;
   margin-bottom: 4rem;
   color: black;
 }
-
-.zukei {
+/* 「図解」と「計画の流れ」を分ける flex */
+.zukai {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-between;
+  gap: 5rem;
+  border: 0.5rem solid red;
+}
+
+/* 左側の図解エリア */
+.zukai_left {
+  width: 25%;
+  height: auto;
+  border: 0.5rem solid blue;
+  position: relative; /* ← これを追加 */
+}
+
+/* 黄色い縦線（親要素に1本） */
+.zukai_left::before {
+  content: "";
+  width: 5rem; /* 線の太さ */
+  height: 100%; /* 親要素の高さいっぱいに伸ばす */
+  background-color: #ffdd00;
+  position: absolute;
+  top: 0;
+  left: 50%; /* 中央に配置 */
+  transform: translateX(-50%);
+  z-index: 0; /* ボックスの後ろに配置 */
+}
+
+/* 左側の図解エリア 内の流れ部分・ボックス */
+.left_flow {
+  width: 100%;
+  height: 8rem;
+  line-height: 8rem;
+  background-color: #414141;
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0 auto 10rem; /* ← 6remから3remに変更（30px） */
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+/* 最後のステップだけマージンなし */
+.left_flow:last-child {
+  margin-bottom: 0;
+}
+
+/* 三角形（矢印） */
+.left_flow::before {
+  content: "";
+  border-top: 30px solid #414141;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  position: absolute;
+  top: 77px; /* 四角の高さ分下げる */
+  /* これを追加 */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+}
+
+/* 右側の計画の流れエリア */
+.zukai_right {
+  width: 65%;
+  height: auto;
+  border: 0.5rem solid green;
+  border: 2rem solid red;
+}
+
+.number_area {
+  display: block;
+  padding-left: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  color: black;
+  /* border-bottom: 0.5rem solid black; */
+  position: relative; /* ← 絶対配置の基準にする */
+}
+
+.number_area::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 3rem; /* padding-leftと同じ値 */
+  right: 0;
+  height: 0.5rem;
+  background-color: black;
+}
+
+/* 黒丸に白で１にする */
+.num {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2em 0.6em;
+  display: inline-block;
+  text-align: center;
+  margin-right: 0.5em;
+
+  position: absolute; /* ← これを追加 */
+  top: -0.5rem; /* ← 上に少し上げる */
+  left: 0rem; /* ← 左に少しずらす */
+}
+
+.flow_msg_area {
+  padding: auto;
+  font-size: 1.25rem;
+  margin-left: 3.8rem;
+  margin-bottom: 8rem;
+  color: black;
 }
