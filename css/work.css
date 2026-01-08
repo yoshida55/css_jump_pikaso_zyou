@@ -13,6 +13,7 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  border: 0.5rem solid red;
 }
 
 /* ➁明るい未来エリア */
@@ -41,13 +42,6 @@
   color: #121212;
 }
 
-/* ➂それぞれのメニュー　下 */
-.nav_sns_list {
-  display: flex;
-  flex-direction: column;
-  gap: 2.3rem;
-}
-
 /* ┌─────────────────────────────────────────┐
    │ 右のメイン灰色                            │
    └─────────────────────────────────────────┘ */
@@ -74,7 +68,8 @@
   display: block;
   display: flex; /* Flexboxで横並び */
   align-items: center; /* 縦方向の中央揃え */
-  justify-content: space-between; /* 左右に配置 */
+  justify-content: center; /* 左右に配置 */
+  gap: 10rem;
   font-size: 1.75rem;
   margin-bottom: 60px;
   text-align: center;
@@ -87,7 +82,7 @@
   display: block;
   content: ""; /* 空の要素を作る */
   border-top: 1px solid; /* 上側に1pxの線 */
-  width: 28%; /* 線の長さ */
+  width: 26.5rem; /* 線の長さ */
 }
 
 /* 家の画像の紹介４枚 */
@@ -101,7 +96,7 @@
 }
 
 .img_item {
-  width: 30%;
+  width: 38rem;
   height: 100%;
   margin-right: 5%;
   margin-bottom: 4rem;
@@ -152,7 +147,8 @@
   display: block;
   display: flex; /* Flexboxで横並び */
   align-items: center; /* 縦方向の中央揃え */
-  justify-content: space-between; /* 左右に配置 */
+  justify-content: center; /* 左右に配置 */
+  gap: 9rem;
   font-size: 1.75rem;
   margin-bottom: 60px;
   text-align: center;
@@ -166,7 +162,7 @@
   display: block;
   content: ""; /* 空の要素を作る */
   border-top: 1px solid; /* 上側に1pxの線 */
-  width: 28%; /* 線の長さ */
+  width: 27rem; /* 線の長さ */
 }
 
 /* タイトルメッセージ　説明 */
@@ -182,14 +178,12 @@
   display: flex;
   justify-content: space-between;
   gap: 5rem;
-  border: 0.5rem solid red;
 }
 
 /* 左側の図解エリア */
 .zukai_left {
   width: 25%;
   height: auto;
-  border: 0.5rem solid blue;
   position: relative; /* ← これを追加 */
 }
 
@@ -214,7 +208,7 @@
   background-color: #414141;
   color: #fff;
   font-size: 1.4rem;
-  margin: 0 auto 10rem; /* ← 6remから3remに変更（30px） */
+  margin: 0 auto 5rem; /* ← 6remから3remに変更（30px） */
   position: relative;
   text-align: center;
   z-index: 1;
@@ -226,25 +220,23 @@
 }
 
 /* 三角形（矢印） */
-.left_flow::before {
+.left_flow::after {
   content: "";
-  border-top: 30px solid #414141;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
+  /* ▼ 小さい三角形：高さ15px、幅15px×2=30px */
+  border-top: 30px solid #414141; /* 三角の高さ */
+  border-left: 120px solid transparent; /* 三角の左幅 */
+  border-right: 120px solid transparent; /* 三角の右幅 */
+
   position: absolute;
-  top: 77px; /* 四角の高さ分下げる */
-  /* これを追加 */
+  top: 100%; /* 親要素の下端に配置 */
   left: 50%;
   transform: translateX(-50%);
-  margin: 0 auto;
 }
 
 /* 右側の計画の流れエリア */
 .zukai_right {
   width: 65%;
   height: auto;
-  border: 0.5rem solid green;
-  border: 2rem solid red;
 }
 
 .number_area {
@@ -263,6 +255,7 @@
   position: absolute;
   bottom: 0;
   left: 3rem; /* padding-leftと同じ値 */
+  top: 2.5rem;
   right: 0;
   height: 0.5rem;
   background-color: black;
@@ -285,6 +278,7 @@
 
 .flow_msg_area {
   padding: auto;
+  margin-top: 1.5rem;
   font-size: 1.25rem;
   margin-left: 3.8rem;
   margin-bottom: 8rem;
