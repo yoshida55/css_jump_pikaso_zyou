@@ -6,18 +6,76 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/work.css" />
-    <title>タイトル</title>
+    <title>明るい HOUSE</title>
   </head>
   <body>
-    <div class="wrapper">
-      <!-- メイン -->
-      <main class="main">
-        <section></section>
-      </main>
+    <header id="header">
+      <!-- 明るい未来 -->
+      <h1 class="site_title">
+        <a href="index.html"><img src="img/logo.svg" alt="明るい HOUSE" /></a>
+      </h1>
 
-      <!-- フッター -->
-      <footer class="footer"></footer>
-    </div>
+      <nav id="navi">
+        <!-- メニュー -->
+        <ul class="nav_menu_list">
+          <li><a class="link" href="#">私たちについて</a></li>
+          <li><a class="link" href="#">サービス</a></li>
+          <li><a class="link" href="#">商品情報</a></li>
+          <li><a class="link" href="#">展示会</a></li>
+          <li><a class="link" href="#">暮らしの日記</a></li>
+          <li><a class="link" href="#">会社概要</a></li>
+        </ul>
+        <!-- メニュー２ -->
+        <ul class="nav_sns_list">
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">facebook</a></li>
+          <li><a href="#">instagram</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===============================================
+       右のメイン灰色
+       =============================================== -->
+      <section id="product_area"></section>
+
+      <!-- ===============================================
+       建築事例を紹介
+       =============================================== -->
+      <section id="work_list">
+        <!-- 建築事例を紹介 -->
+        <h2 class="gallery">建築事例を紹介</h2>
+        <!-- 家の画像の紹介４枚 -->
+        <div class="img_list">
+          <img class="img_item" src="img/project1.jpg" alt="おしゃれな家１" />
+          <img class="img_item" src="img/project2.jpg" alt="おしゃれな家２" />
+          <img class="img_item" src="img/project3.jpg" alt="おしゃれな家３" />
+          <img class="img_item" src="img/project4.jpg" alt="おしゃれな家４" />
+        </div>
+
+        <!-- 明るいHOUSEの特徴 -->
+        <h2 class="gallery">明るいHOUSEの特徴</h2>
+        <ul class="feature_list">
+          <li class="list">
+            <a class="radius" href="#">design</a>
+            <p class="title">デザイン</p>
+            <p>テキストテキストテキスト</p>
+          </li>
+          <li class="list">
+            <a class="radius" href="#">quality</a>
+            <p class="title">性能</p>
+            <p>テキストテキストテキスト</p>
+          </li>
+          <li class="list">
+            <a class="radius" href="#">support</a>
+            <p class="title">サポート</p>
+            <p>テキストテキストテキスト</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
     <script src="js/work.js"></script>
   </body>
 </html>

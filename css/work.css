@@ -1,3 +1,133 @@
 /* ┌─────────────────────────────────────────┐
-   │ セクション名                        │
+   │ レイアウト枠（サイドメニュー固定）                  │
    └─────────────────────────────────────────┘ */
+
+/* ➀固定のサイドバーのコンテナ */
+#header {
+  width: 30rem;
+  height: 60rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 60px 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ➁明るい未来エリア */
+.site_title {
+  margin-bottom: 4rem;
+  width: 21rem;
+  height: 6rem;
+}
+
+/* ➁メニュー一覧２つのエリア　親要素 */
+#navi {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8.4rem;
+}
+/* ➂それぞれのメニュー　上 */
+.nav_menu_list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #121212;
+}
+
+/* ➂それぞれのメニュー　下 */
+.nav_sns_list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ 右のメイン灰色                            │
+   └─────────────────────────────────────────┘ */
+#product_area {
+  margin-left: 30rem;
+  height: 60rem;
+  background-color: #dedede;
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ 建築事例を紹介                            │
+   └─────────────────────────────────────────┘ */
+
+/* 背景・メインエリア */
+#work_list {
+  background: linear-gradient(#5454544d, #000000cc);
+  color: #fff;
+  margin-left: 30rem;
+  padding: 8.5rem 12rem;
+  border: 1rem solid red;
+}
+
+/* 建築事例を紹介 タイトル */
+.gallery {
+  display: block;
+  display: flex; /* Flexboxで横並び */
+  align-items: center; /* 縦方向の中央揃え */
+  justify-content: space-between; /* 左右に配置 */
+  font-size: 1.75rem;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* 疑似要素で線を作成 */
+.gallery::before,
+.gallery::after {
+  display: block;
+  content: ""; /* 空の要素を作る */
+  border-top: 1px solid; /* 上側に1pxの線 */
+  width: 28%; /* 線の長さ */
+}
+
+/* 家の画像の紹介４枚 */
+.img_list {
+  width: 85rem;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.img_item {
+  width: 30%;
+  height: 100%;
+  margin-right: 5%;
+  margin-bottom: 4rem;
+  background-color: #ffffff;
+}
+
+/* 3つの円を定義するコンテナ */
+.feature_list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+.list {
+  width: 30%;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.radius {
+  border-radius: 8px white;
+  border: 2px solid white;
+}
