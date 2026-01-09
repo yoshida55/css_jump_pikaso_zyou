@@ -13,7 +13,6 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  border: 0.5rem solid red;
 }
 
 /* ➁明るい未来エリア */
@@ -29,7 +28,6 @@
   display: flex;
   flex-direction: column;
   gap: 8.4rem;
-  border: 1rem solid red;
 }
 /* ➂それぞれのメニュー　上 */
 .nav_menu_list {
@@ -51,6 +49,12 @@
   margin-left: 300px;
   height: 60rem;
   background-color: #dedede;
+}
+
+.product_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ┌─────────────────────────────────────────┐
@@ -188,8 +192,6 @@
   width: 25%;
   height: auto;
   position: relative; /* ← これを追加 */
-
-  border: 1rem solid red;
 }
 
 /* 黄色い縦線（親要素に1本） */
@@ -205,8 +207,6 @@
 
   /* 最後のマージン分を引く */
   height: calc(100% - 5rem); /* ← 最後の余白5remを引く */
-
-  border: 1rem solid red;
 }
 
 /* 左側の図解エリア 内の流れ部分・ボックス */
@@ -317,7 +317,6 @@
   height: 19rem;
   padding: 4rem 5rem 6rem;
   box-sizing: border-box;
-  border: 0.1rem solid black;
 
   /* ▼▼▼【追加】疑似要素を配置する基準点にします ▼▼▼ */
   position: relative;
@@ -325,6 +324,7 @@
   z-index: 1;
   /* 背景色を指定していないと、下の線が透けることがあるので白を指定 */
   background-color: #fff;
+  border: 0.1rem solid black;
 }
 
 .contact_card:hover {
@@ -369,23 +369,39 @@
   margin: 0 auto;
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ レスポンシブ　　　                        │
+   └─────────────────────────────────────────┘ */
+
 @media screen and (max-width: 960px) {
   #header {
-    position: fixed; /* 画面に対して位置を固定する */
-    top: 0; /* 画面の一番上（上端から 0px）に配置 */
-    left: 0; /* 画面の左端から配置 */
-    width: 100%; /* 横幅いっぱいに広げる */
-    z-index: 100; /* 他の要素より前面に表示させる */
-
-    /* 高さや背景色はデザインに合わせて指定 */
-    height: 80px;
-    background-color: #fff;
+    width: 100%;
+    height: 80px; /* 上部バーの高さ */
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 
-  /* ➁明るい未来エリア */
-  .site_title {
-    margin-bottom: 4rem;
-    width: 210px;
-    height: 90%;
+  #navi {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: -300px; /* ← マイナスで画面外へ */
+    bottom: 0;
+    background: #fff;
+    opacity: 0; /* 透明にする */
+    transition: 0.5s; /* アニメーション */
+  }
+
+  /* ↓↓↓ これを追加 ↓↓↓ */
+  .open #navi {
+    left: 0; /* ← 0に戻す = 画面内に表示 */
+    opacity: 1; /* ← 不透明にする */
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 22px; /* ← 上から22px */
+    right: 18px; /* ← 右から18px */
   }
 }
