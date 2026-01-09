@@ -29,6 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 8.4rem;
+  border: 1rem solid red;
 }
 /* ➂それぞれのメニュー　上 */
 .nav_menu_list {
@@ -38,6 +39,7 @@
 }
 
 .link {
+  font-size: 1.4rem;
   text-decoration: none;
   color: #121212;
 }
@@ -87,16 +89,17 @@
 
 /* 家の画像の紹介４枚 */
 .img_list {
-  width: 85rem;
+  width: 100%;
   height: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   margin: 0 auto;
 }
 
 .img_item {
-  width: 38rem;
+  width: 45%;
   height: 100%;
   margin-right: 5%;
   margin-bottom: 4rem;
@@ -185,19 +188,25 @@
   width: 25%;
   height: auto;
   position: relative; /* ← これを追加 */
+
+  border: 1rem solid red;
 }
 
 /* 黄色い縦線（親要素に1本） */
 .zukai_left::before {
   content: "";
   width: 5rem; /* 線の太さ */
-  height: 100%; /* 親要素の高さいっぱいに伸ばす */
   background-color: #ffdd00;
   position: absolute;
   top: 0;
   left: 50%; /* 中央に配置 */
   transform: translateX(-50%);
   z-index: 0; /* ボックスの後ろに配置 */
+
+  /* 最後のマージン分を引く */
+  height: calc(100% - 5rem); /* ← 最後の余白5remを引く */
+
+  border: 1rem solid red;
 }
 
 /* 左側の図解エリア 内の流れ部分・ボックス */
@@ -223,15 +232,17 @@
 .left_flow::after {
   content: "";
   /* ▼ 小さい三角形：高さ15px、幅15px×2=30px */
-  border-top: 30px solid #414141; /* 三角の高さ */
-  border-left: 120px solid transparent; /* 三角の左幅 */
-  border-right: 120px solid transparent; /* 三角の右幅 */
+  border-top: 3rem solid #414141; /* 三角の高さ */
+  border-left: 12rem solid transparent; /* 三角の左幅 */
+  border-right: 12rem solid transparent; /* 三角の右幅 */
 
   position: absolute;
   top: 100%; /* 親要素の下端に配置 */
   left: 50%;
   transform: translateX(-50%);
 }
+
+/* 右側---------------------------------------------------- */
 
 /* 右側の計画の流れエリア */
 .zukai_right {
@@ -244,10 +255,10 @@
   padding-left: 3rem;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 2rem;
   color: black;
   /* border-bottom: 0.5rem solid black; */
   position: relative; /* ← 絶対配置の基準にする */
+  line-height: 1;
 }
 
 .number_area::after {
@@ -266,14 +277,14 @@
   background-color: black;
   color: white;
   border-radius: 50%;
-  padding: 0.2em 0.6em;
+  padding: 0.5em 0.8em;
   display: inline-block;
   text-align: center;
   margin-right: 0.5em;
 
   position: absolute; /* ← これを追加 */
-  top: -0.5rem; /* ← 上に少し上げる */
-  left: 0rem; /* ← 左に少しずらす */
+  top: 0rem; /* ← 上に少し上げる */
+  left: -1rem; /* ← 左に少しずらす */
 }
 
 .flow_msg_area {
@@ -281,6 +292,100 @@
   margin-top: 1.5rem;
   font-size: 1.25rem;
   margin-left: 3.8rem;
-  margin-bottom: 8rem;
+  margin-bottom: 6.7rem;
   color: black;
+}
+
+/* ┌─────────────────────────────────────────┐
+   │ お問い合わせ                        │
+   └─────────────────────────────────────────┘ */
+#contact_area {
+  color: #fff;
+  margin-left: 300px;
+  /* debug 暫定 */
+  padding: 8.5rem 12rem;
+}
+
+/* 三つのカードでflexで並べる 親 */
+.contact_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_card {
+  width: 28%;
+  height: 19rem;
+  padding: 4rem 5rem 6rem;
+  box-sizing: border-box;
+  border: 0.1rem solid black;
+
+  /* ▼▼▼【追加】疑似要素を配置する基準点にします ▼▼▼ */
+  position: relative;
+  /* 他の要素が重なったときに上に来るように念のため指定 */
+  z-index: 1;
+  /* 背景色を指定していないと、下の線が透けることがあるので白を指定 */
+  background-color: #fff;
+}
+
+.contact_card:hover {
+  outline: 0.3rem solid black;
+  cursor: pointer;
+}
+
+/* ▼▼▼【追加】右下の黒い三角形（折り返し）を作成 ▼▼▼ */
+.contact_card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0.3rem; /* 下端に配置 */
+  right: 0.3rem; /* 右端に配置 */
+
+  /* 三角形のサイズ（お好みで調整してください） */
+  width: 2.5rem;
+  height: 2.5rem;
+
+  /* グラデーションを使って直角三角形を作る魔法の記述 */
+  /* 「右下から左上に向かって、50%の位置まで黒、残りは透明」という指定です */
+  background: linear-gradient(to top left, #000000 50%, transparent 50%);
+
+  /* カードの枠線の上に重なるように z-index を調整 */
+  z-index: 2;
+}
+
+.contact_card {
+  display: block;
+  width: 28%;
+  height: 19rem;
+}
+
+.description {
+  display: block;
+  text-align: center;
+}
+
+.icon_link {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 960px) {
+  #header {
+    position: fixed; /* 画面に対して位置を固定する */
+    top: 0; /* 画面の一番上（上端から 0px）に配置 */
+    left: 0; /* 画面の左端から配置 */
+    width: 100%; /* 横幅いっぱいに広げる */
+    z-index: 100; /* 他の要素より前面に表示させる */
+
+    /* 高さや背景色はデザインに合わせて指定 */
+    height: 80px;
+    background-color: #fff;
+  }
+
+  /* ➁明るい未来エリア */
+  .site_title {
+    margin-bottom: 4rem;
+    width: 210px;
+    height: 90%;
+  }
 }

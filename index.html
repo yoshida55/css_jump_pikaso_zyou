@@ -32,6 +32,15 @@
           <li><a href="#">instagram</a></li>
         </ul>
       </nav>
+      
+      <!-- ↓↓↓ ここに2つ追加するだけ ↓↓↓ -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div id="mask"></div>
     </header>
 
     <main>
@@ -90,9 +99,23 @@
             <div class="left_flow">ヒアリング</div>
             <div class="left_flow">ヒアリング</div>
             <div class="left_flow">ヒアリング</div>
+            <div class="left_flow">ヒアリング</div>
           </div>
           <!-- flexで「番号➀」と「計画の流れ」を分ける 親flex-->
           <div class="zukai_right">
+            <dt class="number_area">
+              ヒアリング
+              <span class="num">1</span>
+            </dt>
+            <dd class="flow_msg_area">
+              テキストテキストテキストテキストテキストテキストテキストテキスト
+              テキス トテキストテキストテキストテキストテキストテキストテキスト
+            </dd>
+            <dt class="number_area"><span class="num">1</span>ヒアリング</dt>
+            <dd class="flow_msg_area">
+              テキストテキストテキストテキストテキストテキストテキストテキスト
+              テキス トテキストテキストテキストテキストテキストテキストテキスト
+            </dd>
             <dt class="number_area">
               ヒアリング
               <span class="num">1</span>
@@ -110,8 +133,42 @@
         </div>
       </section>
       <!-- ===============================================
-      XXXXXXXXXXXXXXX
+      お問い合わせ
        =============================================== -->
+      <section id="contact_area">
+        <!-- お問い合わせ -->
+        <h2 class="flow_area_msg">お問い合わせ</h2>
+        <h3 class="flow_small_msg">
+          お問い合わせいただいてから、家が完成するまでの流れです。
+        </h3>
+        <!-- 三つのカードでflexで並べる 親 -->
+        <div class="contact_content">
+          <a href="#" class="contact_card">
+            <img
+              class="icon_link"
+              src="img/icon-document.png"
+              alt="資料アイコン"
+            />
+            <span class="description">資料請求</span>
+          </a>
+          <a href="#" class="contact_card">
+            <img
+              class="icon_link"
+              src="img/icon-document.png"
+              alt="資料アイコン"
+            />
+            <span class="description">Web説明会</span>
+          </a>
+          <a href="#" class="contact_card">
+            <img
+              class="icon_link"
+              src="img/icon-document.png"
+              alt="資料アイコン"
+            />
+            <span class="description">個別相談</span>
+          </a>
+        </div>
+      </section>
     </main>
 
     <script src="js/work.js"></script>
