@@ -77,17 +77,23 @@ main {
 /* 最初の1画面：普通の背景（固定しない） */
 .mv_wrap {
   margin-left: 300px;
-  height: 100vh;
+  height: calc(100vh - 160px); /* ←白帯160pxぶん引く */
 }
 
-/* 2. メインエリア（透明） */
+/* 白帯を画面下に固定 */
 #product_area {
-  margin-left: 300px;
+  position: fixed;
+  left: 300px;
+  bottom: 0;
+  width: calc(100% - 300px);
+  height: 160px; /* 白帯の高さ */
+  background: #fff;
+  z-index: 2;
+}
 
-  /* 日本語の説明は全部消して、これだけにします */
-  height: 100px;
-
-  background: transparent;
+/* 白帯のぶんだけスクロール側に余白を作る（重要） */
+#work_list{
+  margin-top: 160px;
 }
 
 /* 上に乗るエリアは半透明背景 + 手前に */
@@ -99,15 +105,12 @@ main {
   z-index: 1;
 }
 
-/* 3. 白い帯（これが復活します！） */
 .white_space {
-  height: 100px;
-  background-color: #ffffff; /* 白背景 */
-  margin-left: 300px;
-
-  /* 重要：手前に表示する設定 */
+  margin-left: 300px; /* サイドバー分よける */
+  height: 200px; /* 好きな高さに */
+  background: #fff;
   position: relative;
-  z-index: 50;
+  z-index: 1; /* 背景より手前 */
 }
 
 .product_img {
