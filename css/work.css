@@ -92,7 +92,7 @@ main {
 }
 
 /* 白帯のぶんだけスクロール側に余白を作る（重要） */
-#work_list{
+#work_list {
   margin-top: 160px;
 }
 
@@ -466,15 +466,17 @@ main {
     transition: 0.5s; /* アニメーション */
   }
 
-  /* ↓↓↓ これを追加 ↓↓↓ */
-  .open #navi {
-    left: 0; /* ← 0に戻す = 画面内に表示 */
-    opacity: 1; /* ← 不透明にする */
-  }
-
-  .hamburger {
-    position: fixed;
-    top: 22px; /* ← 上から22px */
-    right: 18px; /* ← 右から18px */
+  /* スマホ用 */
+  @media screen and (max-width: 960px) {
+    /* ③ハンバーガーメニュー表示 */
+    .hamburger {
+      width: 3rem;
+      height: 3rem;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 100; /* 一番上に表示 */
+      cursor: pointer;
+    }
   }
 }

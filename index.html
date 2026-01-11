@@ -9,12 +9,17 @@
     <title>明るい HOUSE</title>
   </head>
   <body>
-    <header id="header" class="open">
+    <!-- ===============================================
+      ヘッダー（ロゴ、ナビゲーション）
+    =============================================== -->
+    <header id="header">
       <h1 class="site_title">
         <a href="index.html"><img src="img/logo.svg" alt="明るい HOUSE" /></a>
       </h1>
 
+      <!-- ナビゲーションメニュー -->
       <nav id="navi">
+        <!-- フレックス（メニュー並列） -->
         <ul class="nav_menu_list">
           <li><a class="link" href="#">私たちについて</a></li>
           <li><a class="link" href="#">サービス</a></li>
@@ -39,11 +44,22 @@
     </header>
 
     <main>
+      <!-- ===============================================
+        メインビジュアル
+      =============================================== -->
       <div class="mv_wrap"></div>
+
+      <!-- ===============================================
+        商品紹介エリア
+      =============================================== -->
       <section id="product_area"></section>
 
+      <!-- ===============================================
+        建築事例（実績）リスト
+      =============================================== -->
       <section id="work_list">
         <h2 class="gallery">建築事例を紹介</h2>
+        <!-- フレックス（画像を横並びに配置） -->
         <div class="img_list">
           <img class="img_item" src="img/project1.jpg" alt="おしゃれな家１" />
           <img class="img_item" src="img/project2.jpg" alt="おしゃれな家２" />
@@ -52,6 +68,7 @@
         </div>
 
         <h2 class="gallery">明るいHOUSEの特徴</h2>
+        <!-- フレックス（特徴を3カラムで表示） -->
         <ul class="feature_list">
           <li class="list">
             <a class="radius" href="#">design</a>
@@ -71,12 +88,16 @@
         </ul>
       </section>
 
+      <!-- ===============================================
+        家ができるまでの流れ（ステップ）
+      =============================================== -->
       <section id="flow_area">
         <h2 class="flow_area_msg">家ができるまでの流れ</h2>
         <h3 class="flow_small_msg">
           お問い合わせいただいてから、家が完成するまでの流れです。
         </h3>
 
+        <!-- フレックス（左側フロー図と右側説明の2カラム） -->
         <div class="zukai">
           <div class="zukai_left">
             <div class="left_flow">ヒアリング</div>
@@ -115,11 +136,15 @@
         </div>
       </section>
 
+      <!-- ===============================================
+        お問い合わせ
+      =============================================== -->
       <section id="contact_area">
         <h2 class="flow_area_msg">お問い合わせ</h2>
         <h3 class="flow_small_msg">
           お問い合わせいただいてから、家が完成するまでの流れです。
         </h3>
+        <!-- フレックス（リンクカードを横並び） -->
         <div class="contact_content">
           <a href="#" class="contact_card">
             <img
@@ -147,6 +172,8 @@
           </a>
         </div>
       </section>
+
+      <!-- 画面下部の余白調整用 -->
       <section class="white_space"></section>
     </main>
 
