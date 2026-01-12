@@ -453,7 +453,7 @@ main {
   #header {
     width: 100%;
 
-    height: 10rem;
+    height: 4rem;
 
     display: flex;
     position: fixed;
@@ -463,7 +463,7 @@ main {
 
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 4rem 0.5rem 1.5rem;
+    padding: 0.5rem 5rem 0.5rem 1.5rem;
 
     background-color: #f0f0f0;
     z-index: 9200; /* 他の要素より前面に表示 */
@@ -471,7 +471,8 @@ main {
 
   /* ➁明るい未来エリア  レスポンシブ　*/
   .site_title {
-    margin-bottom: 0.9rem;
+    padding-top: 1rem;
+    margin: 0;
     width: 210px;
     height: 5.2rem;
   }
@@ -492,13 +493,14 @@ main {
   /* 右上のハンバーガーメニューを表示する */
   .hamburger {
     display: block;
-    position: fixed;
-    top: 50rem;
-    right: 30rem;
-    width: 4rem;
-    height: 5rem;
+    position: relative;
+    top: 0rem;
+    right: auto;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
     z-index: 9999; /* 一番上に表示 */
+    border: 0.1rem solid red;
   }
 
   /* ハンバーガーメニューの横線を作成 */
@@ -516,13 +518,13 @@ main {
   }
 
   .hamburger_line:nth-child(1) {
-    top: 1.5rem;
+    top: 0.5rem;
   }
   .hamburger_line:nth-child(2) {
-    top: 3rem;
+    top: 1.8rem;
   }
   .hamburger_line:nth-child(3) {
-    top: 4.5rem;
+    top: 3.1rem;
   }
 
   #header.open .hamburger_line:nth-child(1) {
