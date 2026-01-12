@@ -40,10 +40,9 @@
         <span class="hamburger_line"></span>
         <span class="hamburger_line"></span>
       </div>
-
-      <div id="mask"></div>
     </header>
 
+    <div id="mask"></div>
     <main>
       <!-- ===============================================
         メインビジュアル
@@ -180,5 +179,25 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/work.js"></script>
+
+    <div
+      id="dbg"
+      style="
+        position: fixed;
+        top: 20rem;
+        height: 10rem;
+        font-size: 5rem;
+        right: 0;
+        z-index: 999999;
+        background: #000;
+        color: #fff;
+        padding: 4px;
+      "
+    ></div>
+    <script>
+      document.addEventListener("click", (e) => {
+        console.log(document.elementFromPoint(e.clientX, e.clientY));
+      });
+    </script>
   </body>
 </html>

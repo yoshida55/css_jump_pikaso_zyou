@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  #header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 64px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    z-index: 10;
+  }
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 9999;
+    cursor: pointer;
+  }
+  .hamburger span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #111;
+    transition: 0.2s;
+  }
+  .hamburger span:nth-child(1) {
+    top: 8px;
+  }
+  .hamburger span:nth-child(2) {
+    top: 18px;
+  }
+  .hamburger span:nth-child(3) {
+    top: 28px;
+  }
+  #navi {
+    position: fixed;
+    top: 64px;
+    left: -260px;
+    width: 260px;
+    bottom: 0;
+    background: #fff;
+    transition: 0.2s;
+    z-index: 9000;
+  }
+  #mask {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    z-index: 8000;
+  }
+  #header.open #navi {
+    left: 0;
+  }
+  #header.open #mask {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #header.open .hamburger span:nth-child(1) {
+    top: 18px;
+    transform: rotate(45deg);
+  }
+  #header.open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #header.open .hamburger span:nth-child(3) {
+    top: 18px;
+    transform: rotate(-45deg);
+  }
+  #dbg {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    color: #fff;
+    padding: 4px;
+    z-index: 99999;
+  }
+</style>
+<div id="header">
+  <div>LOGO</div>
+  <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+</div>
+<nav id="navi"><p style="padding: 12px">MENU</p></nav>
+<div id="mask"></div>
+<div style="padding-top: 80px">本文…</div>
+<div id="dbg"></div>
+<script>
+  const header = document.getElementById("header"),
+    dbg = document.getElementById("dbg");
+  const f = () =>
+    (dbg.textContent = `w:${innerWidth} open:${header.classList.contains(
+      "open"
+    )}`);
+  addEventListener("resize", f);
+  f();
+  ham.onclick = () => {
+    header.classList.toggle("open");
+    f();
+  };
+  mask.onclick = () => {
+    header.classList.remove("open");
+    f();
+  };
+</script>

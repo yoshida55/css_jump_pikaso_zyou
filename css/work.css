@@ -441,7 +441,9 @@ main {
   width: 50%;
   margin: 0 auto;
 }
-
+.hamburger {
+  display: none; /* 最初は非表示 */
+}
 /* ┌─────────────────────────────────────────┐
    │ レスポンシブ　　　                        │
    └─────────────────────────────────────────┘ */
@@ -451,17 +453,20 @@ main {
   #header {
     width: 100%;
 
-    height: auto;
-    min-height: 6.2rem; /* 上部バーの高さ */
+    height: 10rem;
 
+    display: flex;
     position: fixed;
     flex-direction: row;
     top: 0;
     left: 0;
 
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5rem 4rem 0.5rem 1.5rem;
 
     background-color: #f0f0f0;
+    z-index: 9200; /* 他の要素より前面に表示 */
   }
 
   /* ➁明るい未来エリア  レスポンシブ　*/
@@ -475,24 +480,25 @@ main {
   #navi {
     width: 300px;
     position: fixed;
-    top: 6.2rem; /* ←ここで固定（ヘッダー高さ） */
+    top: 10rem; /* ←ここで固定（ヘッダー高さ） */
     left: -300px; /* ← マイナスで画面外へ */
     bottom: 0;
     background: #fff;
     opacity: 0; /* 透明にする */
     transition: 0.5s; /* アニメーション */
-    z-index: 99; /* ヘッダーより上に表示 */
+    z-index: 9100; /* ヘッダーより上に表示 */
   }
 
   /* 右上のハンバーガーメニューを表示する */
   .hamburger {
+    display: block;
     position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 3rem;
-    height: 3rem;
+    top: 50rem;
+    right: 30rem;
+    width: 4rem;
+    height: 5rem;
     cursor: pointer;
-    z-index: 100; /* 一番上に表示 */
+    z-index: 9999; /* 一番上に表示 */
   }
 
   /* ハンバーガーメニューの横線を作成 */
@@ -510,13 +516,13 @@ main {
   }
 
   .hamburger_line:nth-child(1) {
-    top: 0.5rem;
+    top: 1.5rem;
   }
   .hamburger_line:nth-child(2) {
-    top: 1.3rem;
+    top: 3rem;
   }
   .hamburger_line:nth-child(3) {
-    top: 2.1rem;
+    top: 4.5rem;
   }
 
   #header.open .hamburger_line:nth-child(1) {
@@ -531,35 +537,34 @@ main {
     transform: rotate(-45deg);
   }
 
-  /* ナビ（最初は左に隠す） */
-  #navi {
-    z-index: 1000;
-    left: -300px;
-    opacity: 0;
-    transition: 0.3s;
-  }
-
   /* 背景の黒い幕（最初は消す） */
   #mask {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
     pointer-events: none;
-    transition: 0.3s;
-    z-index: 900;
   }
 
-  /* open：表示 */
+  /* メニュー開いてる時だけ遮る */
+  body.is-open #mask {
+    pointer-events: auto;
+  }
+
+  /* 開いたら：メニューを最上部から */
   #header.open #navi {
+    top: 0;
     left: 0;
     opacity: 1;
   }
 
-  /* ハンバーガーメニューが開いたら×にする
-  あとでjavaScriptで追加するクラス名 */
-  #open {
-    left: 0;
+  /* 開いたら：ヘッダーの帯とロゴを消す */
+  #header.open {
+    background: transparent;
+  }
+
+  #header.open #mask {
     opacity: 1;
+    pointer-events: auto;
+  }
+
+  #header.open .site_title {
+    display: none;
   }
 }
