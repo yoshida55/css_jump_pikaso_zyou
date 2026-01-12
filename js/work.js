@@ -9,6 +9,11 @@ $(function () {
     $("#header").toggleClass("open");
   });
 
+  // ハンバーガーをそした時にメニューを閉じる
+  $("#mask").on("click", function () {
+    $("#header").removeClass("open");
+  });
+
   // リンクをクリックした時にメニューを閉じる
   $("#navi a").on("click", function () {
     $("#header").removeClass("open");

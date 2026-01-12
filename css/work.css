@@ -464,18 +464,18 @@ main {
     background-color: #f0f0f0;
   }
 
-  /* ➁明るい未来エリア */
+  /* ➁明るい未来エリア  レスポンシブ　*/
   .site_title {
     margin-bottom: 0.9rem;
     width: 210px;
     height: 5.2rem;
   }
 
-  /* メニューがずらっと縦に並んでるエリア */
+  /* メニューがずらっと縦に並んでるエリア レスポンシブ　*/
   #navi {
     width: 300px;
     position: fixed;
-    top: 0;
+    top: 6.2rem; /* ←ここで固定（ヘッダー高さ） */
     left: -300px; /* ← マイナスで画面外へ */
     bottom: 0;
     background: #fff;
@@ -548,6 +548,12 @@ main {
     pointer-events: none;
     transition: 0.3s;
     z-index: 900;
+  }
+
+  /* open：表示 */
+  #header.open #navi {
+    left: 0;
+    opacity: 1;
   }
 
   /* ハンバーガーメニューが開いたら×にする
