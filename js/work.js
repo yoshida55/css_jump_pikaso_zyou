@@ -3,17 +3,10 @@ $(function () {
   ハンバーガーメニュー
   解説は、「中級編：ストアサイト（インテリア）」参照
   ===================================================*/
+  // headerにクラスがなければクラスを追加、あれば削除。なおHTMLの
+  // 表示が終わったあとに実行される。
   $(".hamburger").on("click", function () {
-    if ($("#header").hasClass("open")) {
-      $("#header").removeClass("open");
-    } else {
-      $("#header").addClass("open");
-    }
-  });
-
-  // #maskのエリアをクリックした時にメニューを閉じる
-  $("#mask").on("click", function () {
-    $("#header").removeClass("open");
+    $("#header").toggleClass("open");
   });
 
   // リンクをクリックした時にメニューを閉じる

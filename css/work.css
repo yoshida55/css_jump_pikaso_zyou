@@ -447,14 +447,31 @@ main {
    └─────────────────────────────────────────┘ */
 
 @media screen and (max-width: 960px) {
+  /* ヘッダー表示時に上部の横バーに変更 */
   #header {
     width: 100%;
-    height: 80px; /* 上部バーの高さ */
+
+    height: auto;
+    min-height: 6.2rem; /* 上部バーの高さ */
+
     position: fixed;
+    flex-direction: row;
     top: 0;
     left: 0;
+
+    padding: 0.5rem 4rem 0.5rem 1.5rem;
+
+    background-color: #f0f0f0;
   }
 
+  /* ➁明るい未来エリア */
+  .site_title {
+    margin-bottom: 0.9rem;
+    width: 210px;
+    height: 5.2rem;
+  }
+
+  /* メニューがずらっと縦に並んでるエリア */
   #navi {
     width: 300px;
     position: fixed;
@@ -464,19 +481,79 @@ main {
     background: #fff;
     opacity: 0; /* 透明にする */
     transition: 0.5s; /* アニメーション */
+    z-index: 99; /* ヘッダーより上に表示 */
   }
 
-  /* スマホ用 */
-  @media screen and (max-width: 960px) {
-    /* ③ハンバーガーメニュー表示 */
-    .hamburger {
-      width: 3rem;
-      height: 3rem;
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      z-index: 100; /* 一番上に表示 */
-      cursor: pointer;
-    }
+  /* 右上のハンバーガーメニューを表示する */
+  .hamburger {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    z-index: 100; /* 一番上に表示 */
+  }
+
+  /* ハンバーガーメニューの横線を作成 */
+  .hamburger_line {
+    position: absolute;
+
+    /* ゆっくり動作する */
+    transition: 0.3s;
+    top: 0;
+    right: 0;
+    height: 0.3rem;
+    width: 100%;
+    background: #121212;
+    border: 1px solid #121212;
+  }
+
+  .hamburger_line:nth-child(1) {
+    top: 0.5rem;
+  }
+  .hamburger_line:nth-child(2) {
+    top: 1.3rem;
+  }
+  .hamburger_line:nth-child(3) {
+    top: 2.1rem;
+  }
+
+  #header.open .hamburger_line:nth-child(1) {
+    top: 1.3rem;
+    transform: rotate(45deg);
+  }
+  #header.open .hamburger_line:nth-child(2) {
+    opacity: 0;
+  }
+  #header.open .hamburger_line:nth-child(3) {
+    top: 1.3rem;
+    transform: rotate(-45deg);
+  }
+
+  /* ナビ（最初は左に隠す） */
+  #navi {
+    z-index: 1000;
+    left: -300px;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  /* 背景の黒い幕（最初は消す） */
+  #mask {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+  }
+
+  /* ハンバーガーメニューが開いたら×にする
+  あとでjavaScriptで追加するクラス名 */
+  #open {
+    left: 0;
+    opacity: 1;
   }
 }
