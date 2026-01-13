@@ -227,8 +227,8 @@ main {
   display: flex; /* Flexboxで横並び */
   align-items: center; /* 縦方向の中央揃え */
   justify-content: center; /* 左右に配置 */
-  gap: 9rem;
-  font-size: 1.75rem;
+  gap: 3rem;
+  font-size: 1rem;
   margin-bottom: 60px;
   text-align: center;
   color: black;
@@ -241,7 +241,7 @@ main {
   display: block;
   content: ""; /* 空の要素を作る */
   border-top: 1px solid; /* 上側に1pxの線 */
-  width: 27rem; /* 線の長さ */
+  width: 5rem; /* 線の長さ */
 }
 
 /* タイトルメッセージ　説明 */
@@ -515,6 +515,22 @@ main {
     background: #121212;
   }
 
+  .main {
+    margin-left: 0;
+  }
+
+  /* ★追加：背景画像もリセット */
+  body::before {
+    left: 0;
+    width: 100%;
+  }
+
+  /* ★追加：白帯の位置もリセット */
+  #product_area {
+    left: 0;
+    width: 100%;
+  }
+
   .hamburger_line:nth-child(1) {
     top: 0.2rem;
   }
@@ -554,6 +570,19 @@ main {
     opacity: 1;
   }
 
+  #header.open .hamburger {
+    position: fixed;
+    top: 0;
+    right: 2rem;
+    opacity: 1;
+    color: white;
+  }
+
+  /* ★追加：開いた時のハンバーガーの線を白にする */
+  #header.open .hamburger_line {
+    background: #ffffff;
+  }
+
   /* 開いたら：ヘッダーの帯とロゴを消す */
   #header.open {
     background: transparent;
@@ -566,5 +595,113 @@ main {
 
   #header.open .site_title {
     display: none;
+  }
+
+  .nav_menu_list {
+    padding-top: 6rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+  }
+
+  /* レスポンシブ：背景画像を全画面に */
+  body::before {
+    left: 0;
+    width: 100%;
+  }
+
+  /* レスポンシブ：メインビジュアルエリア */
+  .mv_wrap {
+    margin-left: 0;
+    margin-top: 4rem; /* ヘッダー分の余白 */
+  }
+
+  /* レスポンシブ：白帯エリア */
+  #product_area {
+    left: 0;
+    width: 100%;
+  }
+
+  /* ★または、個別に指定 */
+  #work_list,
+  #flow_area,
+  #contact_area,
+  .white_space,
+  #flow_area {
+    margin-left: 0;
+  }
+
+  /* レスポンシブ：各エリアのパディング調整 */
+  #work_list,
+  #flow_area,
+  #contact_area {
+    padding: 4rem 2rem;
+  }
+
+  /* 家の画像の紹介４枚 */
+  .img_list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto;
+  }
+
+  /* ★追加：画像を100%幅にする */
+  .img_item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  #main {
+    width: 100%;
+  }
+
+  /* モバイル：タイトルを短い線付きで表示 */
+  .gallery {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem; /* 線とテキストの間隔を狭く */
+    font-size: 1rem;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  /* 疑似要素で線を作成（短く） */
+  .gallery::before,
+  .gallery::after {
+    content: "";
+    border-top: 1px solid;
+    width: 4rem; /* モバイルでは短い線 */
+    flex-shrink: 0; /* 線が縮まないように */
+  }
+
+  /* 左側の図解エリア */
+  .zukai_left {
+    width: 25%;
+    height: auto;
+    position: relative; /* ← これを追加 */
+  }
+
+  /* 黄色い縦線（親要素に1本） */
+  .zukai_left::before {
+    content: "";
+    width: 5rem; /* 線の太さ */
+    background-color: #ffdd00;
+    position: absolute;
+    top: 0;
+    left: 50%; /* 中央に配置 */
+    transform: translateX(-50%);
+    z-index: 0; /* ボックスの後ろに配置 */
+
+    /* 最後のマージン分を引く */
+    height: calc(100% - 5rem); /* ← 最後の余白5remを引く */
   }
 }
