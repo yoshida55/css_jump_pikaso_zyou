@@ -4,7 +4,10 @@ Theme Name:
 
 html {
   font-size: calc(10 / 1400 * 100vw);
+<<<<<<< HEAD
   /* font-size: 10px; */
+=======
+>>>>>>> 3149d645e02f6bc90e2e559627ebf455996894d8
 }
 :root {
 }
